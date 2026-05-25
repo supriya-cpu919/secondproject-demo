@@ -1,3 +1,4 @@
 # secondproject-demo
+This is my second Repository
 <br>
-this is my second Repository
+Developer - Supriya Thakur
