@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delta — Profile Card with Grid Background</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400&family=Nunito:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --w:95%;
+      --max-w:1000px;
+      --pad:24px;
+      --border:#222;
+      --grid-color:rgba(0,0,0,0.1); /* background grid line color */
+      --grid-size:40px;             /* grid square size */
+    }
+
+    body{
+      margin:20px;
+      font-family:'Nunito',sans-serif;
+      background:#f4f4f4;
+      display:flex;
+      justify-content:center;
+    }
+
+    .card{
+      width:var(--w);
+      max-width:var(--max-w);
+      background:#fff;
+      border:2px solid var(--border);
+      padding:var(--pad);
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* Background design: diagonal grid pattern */
+    .card::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(45deg, var(--grid-color) 1px, transparent 1px),
+        linear-gradient(-45deg, var(--grid-color) 1px, transparent 1px);
+      background-size: var(--grid-size) var(--grid-size);
+      opacity:0.3;
+      pointer-events:none;
+    }
+
+    .title{
+      font-family:'Playfair Display',serif;
+      font-size:38px;
+      font-style:italic;
+      margin:0 0 6px 0;
+      color:var(--border);
+    }
+
+    .rule{height:1px;background:var(--border);opacity:.85;margin:8px 0 16px}
+
+    .heading{ text-align:center; text-transform:uppercase; font-weight:700; letter-spacing:2px; margin:0 0 16px}
+
+    .content{
+      max-width:900px;
+      margin:0 auto;
+      text-align:center;
+      font-size:16px;
+      line-height:1.6;
+      color:#222;
+    }
+
+    .footer{ text-align:center; margin-top:12px }
+
+    .diagram{
+      text-align:center;
+      margin-top:18px;
+      font-weight:bold;
+    }
+
+    @media (max-width:600px){
+      .title{ font-size:28px }
+      .content{ font-size:15px }
+    }
+
+    @media print{ .card::before{ opacity:0.15 } }
+  </style>
+</head>
+<body>
+  <article class="card" role="region" aria-label="Company profile card">
+    <h1 class="title">Delta Engineering Pvt. Ltd.</h1>
+    <div class="rule"></div>
+    <h2 class="heading">Profile</h2>
+
+    <div class="content">
+      <p>Delta Engineering Pvt. Ltd. is a specialist manufacturer of wire and wire products. DEPL, established in Mumbai, India is ideally located for shipment to any part of the world. The main terms of manufacture, in collaboration with Gulf Fencing Industry (GFI) include protector gabions and protector fencing systems.</p>
+
+      <p>Protector fencing systems offer a wide range of solutions to all security problems on any terrain and under extreme climatic conditions. The protector fencing system has been used extensively in Europe, America and the Far East, and this has helped formulate a package especially suited to Middle East requirements.</p>
+
+      <p class="footer">DEPL is equipped to offer comprehensive packages including design, material and installation.</p>
+    </div>
+
+    <div class="diagram">Diagram 2.5</div>
+  </article>
+</body>
+</html>
